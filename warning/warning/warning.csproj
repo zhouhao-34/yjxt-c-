@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\CefSharp.Common.103.0.120\build\CefSharp.Common.props" Condition="Exists('..\packages\CefSharp.Common.103.0.120\build\CefSharp.Common.props')" />
+  <Import Project="..\packages\cef.redist.x86.103.0.12\build\cef.redist.x86.props" Condition="Exists('..\packages\cef.redist.x86.103.0.12\build\cef.redist.x86.props')" />
+  <Import Project="..\packages\cef.redist.x64.103.0.12\build\cef.redist.x64.props" Condition="Exists('..\packages\cef.redist.x64.103.0.12\build\cef.redist.x64.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{86EFE932-6E90-4C37-AD43-65E5467F5E1A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>warning</RootNamespace>
+    <AssemblyName>warning</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CefSharp, Version=103.0.120.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=MSIL">
+      <HintPath>..\packages\CefSharp.Common.103.0.120\lib\net452\CefSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="CefSharp.Core, Version=103.0.120.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=MSIL">
+      <HintPath>..\packages\CefSharp.Common.103.0.120\lib\net452\CefSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CefSharp.WinForms, Version=103.0.120.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=MSIL">
+      <HintPath>..\packages\CefSharp.WinForms.103.0.120\lib\net462\CefSharp.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="IoTClient, Version=1.0.8.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\IoTClient.1.0.8\lib\netstandard2.0\IoTClient.dll</HintPath>
+    </Reference>
+    <Reference Include="IoTServer, Version=0.0.14.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\IoTServer.0.0.14\lib\netstandard2.0\IoTServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Ports, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Ports.4.6.0\lib\net461\System.IO.Ports.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Extensions, Version=4.1.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.Extensions.4.3.1\lib\net462\System.Runtime.Extensions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="jsVisit.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="System\FmMenuEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\FmMenuEdit.Designer.cs">
+      <DependentUpon>FmMenuEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="System\FmListEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\FmListEdit.Designer.cs">
+      <DependentUpon>FmListEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="System\createPLC_list.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\createPLC_list.designer.cs">
+      <DependentUpon>createPLC_list.cs</DependentUpon>
+    </Compile>
+    <Compile Include="System\FmLogCL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\FmLogCL.Designer.cs">
+      <DependentUpon>FmLogCL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="System\FmPLC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\FmPLC.Designer.cs">
+      <DependentUpon>FmPLC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="System\FmLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\FmLog.Designer.cs">
+      <DependentUpon>FmLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="System\Fmalarm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\Fmalarm.Designer.cs">
+      <DependentUpon>Fmalarm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="System\FmListCL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\FmListCL.Designer.cs">
+      <DependentUpon>FmListCL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="System\FmListCL_proAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\FmListCL_proAdd.Designer.cs">
+      <DependentUpon>FmListCL_proAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="System\FmListImg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\FmListImg.Designer.cs">
+      <DependentUpon>FmListImg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="System\FmUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\FmUser.Designer.cs">
+      <DependentUpon>FmUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="System\FmListAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\FmListAdd.Designer.cs">
+      <DependentUpon>FmListAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FmMain.Designer.cs">
+      <DependentUpon>FmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="System\FmList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\FmList.Designer.cs">
+      <DependentUpon>FmList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="System\FmMenuAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\FmMenuAdd.Designer.cs">
+      <DependentUpon>FmMenuAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="System\FmMenuEdit.resx">
+      <DependentUpon>FmMenuEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\createPLC_list.resx">
+      <DependentUpon>createPLC_list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\FmListEdit.resx">
+      <DependentUpon>FmListEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\FmLogCL.resx">
+      <DependentUpon>FmLogCL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\FmPLC.resx">
+      <DependentUpon>FmPLC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\FmLog.resx">
+      <DependentUpon>FmLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\Fmalarm.resx">
+      <DependentUpon>Fmalarm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\FmListCL.resx">
+      <DependentUpon>FmListCL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\FmListCL_proAdd.resx">
+      <DependentUpon>FmListCL_proAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FmMain.resx">
+      <DependentUpon>FmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\FmListImg.resx">
+      <DependentUpon>FmListImg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\FmUser.resx">
+      <DependentUpon>FmUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\FmList.resx">
+      <DependentUpon>FmList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\FmListAdd.resx">
+      <DependentUpon>FmListAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\FmMenuAdd.resx">
+      <DependentUpon>FmMenuAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BLL\BLL.csproj">
+      <Project>{45c38dd0-2ea5-4cf9-9ef8-96223b0b5842}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DAL\DAL.csproj">
+      <Project>{F2A6FDB9-44C6-45BF-AF1D-F62408DA05BC}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Entity\Entity.csproj">
+      <Project>{B1BF013E-8C63-40BB-BF24-2AFA39985E40}</Project>
+      <Name>Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Noimg.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\cef.redist.x64.103.0.12\build\cef.redist.x64.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x64.103.0.12\build\cef.redist.x64.props'))" />
+    <Error Condition="!Exists('..\packages\cef.redist.x86.103.0.12\build\cef.redist.x86.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x86.103.0.12\build\cef.redist.x86.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.103.0.120\build\CefSharp.Common.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.103.0.120\build\CefSharp.Common.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.103.0.120\build\CefSharp.Common.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.103.0.120\build\CefSharp.Common.targets'))" />
+  </Target>
+  <Import Project="..\packages\CefSharp.Common.103.0.120\build\CefSharp.Common.targets" Condition="Exists('..\packages\CefSharp.Common.103.0.120\build\CefSharp.Common.targets')" />
+</Project>

@@ -1,0 +1,1316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="easyYJModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="KB_cangKu">
+          <Key>
+            <PropertyRef Name="ckID" />
+          </Key>
+          <Property Name="ckID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="productName" Type="varchar" MaxLength="50" />
+          <Property Name="bandName" Type="varchar" MaxLength="50" />
+          <Property Name="modelName" Type="varchar" MaxLength="50" />
+          <Property Name="ckNub" Type="int" />
+          <Property Name="updateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="KB_cangKuIn">
+          <Key>
+            <PropertyRef Name="ckrID" />
+          </Key>
+          <Property Name="ckrID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="productName" Type="varchar" MaxLength="50" />
+          <Property Name="bandName" Type="varchar" MaxLength="50" />
+          <Property Name="modelName" Type="varchar" MaxLength="50" />
+          <Property Name="inNub" Type="int" />
+          <Property Name="ruTime" Type="datetime" />
+          <Property Name="userID" Type="int" />
+          <Property Name="userName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="KB_cangKuOut">
+          <Key>
+            <PropertyRef Name="ckcID" />
+          </Key>
+          <Property Name="ckcID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="productName" Type="varchar" MaxLength="50" />
+          <Property Name="bandName" Type="varchar" MaxLength="50" />
+          <Property Name="modelName" Type="varchar" MaxLength="50" />
+          <Property Name="outNub" Type="int" />
+          <Property Name="outTime" Type="datetime" />
+          <Property Name="userID" Type="int" />
+          <Property Name="userName" Type="varchar" MaxLength="50" />
+          <Property Name="mark" Type="text" />
+          <Property Name="syID" Type="int" />
+        </EntityType>
+        <EntityType Name="KB_cangKuSY">
+          <Key>
+            <PropertyRef Name="syID" />
+          </Key>
+          <Property Name="syID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="menuID" Type="int" />
+          <Property Name="menuName" Type="varchar" MaxLength="50" />
+          <Property Name="ckID" Type="int" />
+          <Property Name="brandName" Type="varchar" MaxLength="50" />
+          <Property Name="modelName" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="int" />
+          <Property Name="number" Type="int" />
+        </EntityType>
+        <EntityType Name="KB_DataSave">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShiftName" Type="varchar" MaxLength="50" />
+          <Property Name="ModelID" Type="int" />
+          <Property Name="PlanNumber" Type="int" />
+          <Property Name="Single" Type="int" />
+          <Property Name="ChangeNumber" Type="int" />
+          <Property Name="ModelName" Type="varchar" MaxLength="50" />
+          <Property Name="Target" Type="int" />
+          <Property Name="Differences" Type="int" />
+          <Property Name="Datetime" Type="datetime" />
+          <Property Name="Actual" Type="int" />
+          <Property Name="completion" Type="varchar" MaxLength="50" />
+          <Property Name="OEE" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="KB_Model">
+          <Key>
+            <PropertyRef Name="modelID" />
+          </Key>
+          <Property Name="modelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="intervalTime" Type="decimal" Precision="18" Scale="1" />
+          <Property Name="ChangeTime" Type="decimal" Precision="18" Scale="1" />
+          <Property Name="ModelName" Type="varchar" MaxLength="50" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="plcListID" Type="int" />
+          <Property Name="updateTime" Type="datetime" />
+          <Property Name="PLC_modelID" Type="int" />
+        </EntityType>
+        <EntityType Name="KB_moju">
+          <Key>
+            <PropertyRef Name="mjID" />
+          </Key>
+          <Property Name="mjID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mojuName" Type="varchar" MaxLength="50" />
+          <Property Name="mojuNub" Type="int" />
+          <Property Name="liftNub" Type="int" />
+          <Property Name="createTime" Type="datetime" />
+          <Property Name="baoyangTime" Type="datetime" />
+          <Property Name="status" Type="int" />
+          <Property Name="updateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="KB_mojuModel">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mjID" Type="int" />
+          <Property Name="modelID" Type="int" />
+          <Property Name="modelName" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="int" />
+        </EntityType>
+        <EntityType Name="KB_mojuWeibao">
+          <Key>
+            <PropertyRef Name="byID" />
+          </Key>
+          <Property Name="byID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mjID" Type="int" />
+          <Property Name="mojuName" Type="varchar" MaxLength="50" />
+          <Property Name="mojuNub" Type="int" />
+          <Property Name="liftNub" Type="int" />
+          <Property Name="createTime" Type="datetime" />
+          <Property Name="boayangTime" Type="datetime" />
+          <Property Name="status" Type="int" />
+          <Property Name="userID" Type="int" />
+          <Property Name="userName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="KB_PLC_guding">
+          <Key>
+            <PropertyRef Name="GID" />
+          </Key>
+          <Property Name="GID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="plcID" Type="int" />
+          <Property Name="sname" Type="varchar" MaxLength="50" />
+          <Property Name="plc_address" Type="varchar" MaxLength="50" />
+          <Property Name="updateTime" Type="datetime" />
+          <Property Name="plc_addressType" Type="varchar" MaxLength="50" />
+          <Property Name="addressLenth" Type="int" />
+        </EntityType>
+        <EntityType Name="KB_ProductionPlan">
+          <Key>
+            <PropertyRef Name="planID" />
+          </Key>
+          <Property Name="planID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Shift" Type="varchar" MaxLength="50" />
+          <Property Name="ModelID" Type="int" />
+          <Property Name="ModelName" Type="varchar" MaxLength="50" />
+          <Property Name="Planproduction" Type="int" />
+          <Property Name="ActualProduction" Type="int" />
+          <Property Name="startTime" Type="datetime" />
+          <Property Name="endTime" Type="datetime" />
+          <Property Name="planTime" Type="date" />
+          <Property Name="createTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="KB_Shift">
+          <Key>
+            <PropertyRef Name="shiftID" />
+          </Key>
+          <Property Name="shiftID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShiftName" Type="varchar" MaxLength="50" />
+          <Property Name="startTime" Type="varchar" MaxLength="50" />
+          <Property Name="endTime" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="YJ_LogALL">
+          <Key>
+            <PropertyRef Name="logID" />
+          </Key>
+          <Property Name="logID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="logContent" Type="text" />
+          <Property Name="createTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="YJ_Manage">
+          <Key>
+            <PropertyRef Name="MID" />
+          </Key>
+          <Property Name="MID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="proID" Type="int" />
+          <Property Name="manageType" Type="varchar" MaxLength="50" />
+          <Property Name="sendStatus" Type="varchar" MaxLength="50" />
+          <Property Name="createTime" Type="datetime" />
+          <Property Name="status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="YJ_ManageChuli">
+          <Key>
+            <PropertyRef Name="CLID" />
+          </Key>
+          <Property Name="CLID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="proID" Type="int" />
+          <Property Name="lifeValue" Type="int" />
+          <Property Name="yujingValue" Type="int" />
+          <Property Name="unit" Type="varchar" MaxLength="50" />
+          <Property Name="typeCL" Type="varchar" MaxLength="50" />
+          <Property Name="userID" Type="int" />
+          <Property Name="createTime" Type="datetime" />
+          <Property Name="mark" Type="text" />
+          <Property Name="proLogID" Type="int" />
+          <Property Name="MID" Type="int" />
+        </EntityType>
+        <EntityType Name="YJ_ManageSend">
+          <Key>
+            <PropertyRef Name="sendID" />
+          </Key>
+          <Property Name="sendID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userID" Type="int" />
+          <Property Name="type" Type="varchar" MaxLength="50" />
+          <Property Name="address" Type="varchar" MaxLength="50" />
+          <Property Name="createTime" Type="datetime" />
+          <Property Name="MID" Type="int" />
+          <Property Name="sendTime" Type="datetime" />
+          <Property Name="sendContent" Type="text" />
+          <Property Name="sendStatus" Type="text" />
+        </EntityType>
+        <EntityType Name="YJ_ManageUser">
+          <Key>
+            <PropertyRef Name="tongzhiID" />
+          </Key>
+          <Property Name="tongzhiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="proID" Type="int" />
+          <Property Name="userID" Type="int" />
+          <Property Name="status" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="YJ_Menu">
+          <Key>
+            <PropertyRef Name="menuID" />
+          </Key>
+          <Property Name="menuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="menuName" Type="varchar" MaxLength="50" />
+          <Property Name="parentID" Type="int" />
+          <Property Name="status" Type="tinyint" />
+          <Property Name="updateTime" Type="datetime" />
+          <Property Name="menuType" Type="int" />
+        </EntityType>
+        <EntityType Name="YJ_PLC">
+          <Key>
+            <PropertyRef Name="plcID" />
+          </Key>
+          <Property Name="plcID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PLC_brand" Type="varchar" MaxLength="50" />
+          <Property Name="PLC_ip" Type="varchar" MaxLength="50" />
+          <Property Name="PLC_port" Type="int" />
+          <Property Name="PLC_name" Type="varchar" MaxLength="50" />
+          <Property Name="createTime" Type="datetime" />
+          <Property Name="status" Type="int" />
+          <Property Name="className" Type="varchar" MaxLength="50" />
+          <Property Name="PLC_model" Type="varchar" MaxLength="50" />
+          <Property Name="updateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="YJ_PLC_linkLog">
+          <Key>
+            <PropertyRef Name="plcLogID" />
+          </Key>
+          <Property Name="plcLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="plcID" Type="int" />
+          <Property Name="linkStatus" Type="varchar" MaxLength="50" />
+          <Property Name="createTime" Type="datetime" />
+          <Property Name="ipAddress" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="YJ_PLC_list">
+          <Key>
+            <PropertyRef Name="plcListID" />
+          </Key>
+          <Property Name="plcListID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="plcID" Type="int" />
+          <Property Name="PLC_adress" Type="varchar" MaxLength="50" />
+          <Property Name="PLC_addressType" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="int" />
+          <Property Name="addressLenth" Type="int" />
+          <Property Name="proID" Type="int" />
+          <Property Name="chufa" Type="int" />
+          <Property Name="shuju_u" Type="varchar" MaxLength="50" />
+          <Property Name="where_PLC_addressType" Type="varchar" MaxLength="50" />
+          <Property Name="where_PLC_address" Type="varchar" MaxLength="50" />
+          <Property Name="where_tiaojian" Type="varchar" MaxLength="50" />
+          <Property Name="where_content" Type="varchar" MaxLength="50" />
+          <Property Name="returnVal" Type="varchar" MaxLength="150" />
+          <Property Name="chuli" Type="varchar" MaxLength="50" />
+          <Property Name="chuliType" Type="int" />
+          <Property Name="createTime" Type="datetime" />
+          <Property Name="updateTime" Type="datetime" />
+          <Property Name="where_returnVal" Type="int" />
+          <Property Name="Type_y" Type="int" />
+          <Property Name="modelID" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“easyYJ.dbo.YJ_PLC_list_updateLog”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="YJ_PLC_list_updateLog">
+          <Key>
+            <PropertyRef Name="plcListID" />
+          </Key>
+          <Property Name="plcListID" Type="int" Nullable="false" />
+          <Property Name="plcID" Type="int" />
+          <Property Name="PLC_adress" Type="varchar" MaxLength="50" />
+          <Property Name="PLC_addressType" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="int" />
+          <Property Name="addressLenth" Type="int" />
+          <Property Name="proID" Type="int" />
+          <Property Name="chufa" Type="int" />
+          <Property Name="shuju_u" Type="varchar" MaxLength="50" />
+          <Property Name="where_PLC_addressType" Type="varchar" MaxLength="50" />
+          <Property Name="where_PLC_address" Type="varchar" MaxLength="50" />
+          <Property Name="where_tiaojian" Type="varchar" MaxLength="50" />
+          <Property Name="where_content" Type="varchar" MaxLength="50" />
+          <Property Name="returnVal" Type="varchar" MaxLength="150" />
+          <Property Name="chuli" Type="varchar" MaxLength="50" />
+          <Property Name="createTime" Type="datetime" />
+          <Property Name="updateTime" Type="datetime" />
+          <Property Name="where_returnVal" Type="int" />
+        </EntityType>
+        <EntityType Name="YJ_PLC_log">
+          <Key>
+            <PropertyRef Name="logID" />
+          </Key>
+          <Property Name="logID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="proID" Type="int" />
+          <Property Name="plcID" Type="int" />
+          <Property Name="plcListID" Type="int" />
+          <Property Name="plcVal" Type="varchar" MaxLength="50" />
+          <Property Name="type" Type="varchar" MaxLength="50" />
+          <Property Name="createtTime" Type="datetime" />
+          <Property Name="record" Type="text" />
+          <Property Name="status" Type="int" />
+        </EntityType>
+        <EntityType Name="YJ_Product">
+          <Key>
+            <PropertyRef Name="proID" />
+          </Key>
+          <Property Name="proID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="proName" Type="varchar" MaxLength="50" />
+          <Property Name="brand" Type="varchar" MaxLength="50" />
+          <Property Name="model" Type="varchar" MaxLength="50" />
+          <Property Name="lifeValue" Type="int" />
+          <Property Name="unit" Type="varchar" MaxLength="50" />
+          <Property Name="yujingValue" Type="int" />
+          <Property Name="DValue" Type="int" />
+          <Property Name="shopTime" Type="int" />
+          <Property Name="menuID" Type="int" />
+          <Property Name="imgPath" Type="varchar(max)" />
+          <Property Name="shopTimeType" Type="varchar" MaxLength="50" />
+          <Property Name="createTime" Type="datetime" />
+          <Property Name="updateTime" Type="datetime" />
+          <Property Name="status" Type="int" />
+          <Property Name="yujing_sendTime" Type="datetime" />
+          <Property Name="baojing_sendTime" Type="datetime" />
+          <Property Name="updateTimeW" Type="datetime" />
+        </EntityType>
+        <EntityType Name="YJ_ProductLog">
+          <Key>
+            <PropertyRef Name="proLogID" />
+          </Key>
+          <Property Name="proLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="proID" Type="int" />
+          <Property Name="proName" Type="varchar" MaxLength="50" />
+          <Property Name="brand" Type="varchar" MaxLength="50" />
+          <Property Name="model" Type="varchar" MaxLength="50" />
+          <Property Name="lifeValue" Type="int" />
+          <Property Name="unit" Type="varchar" MaxLength="50" />
+          <Property Name="yujingValue" Type="int" />
+          <Property Name="DValue" Type="int" />
+          <Property Name="shopTime" Type="int" />
+          <Property Name="menuID" Type="int" />
+          <Property Name="imgPath" Type="varchar(max)" />
+          <Property Name="shopTimeType" Type="varchar" MaxLength="50" />
+          <Property Name="createTime" Type="datetime" />
+          <Property Name="updateTime" Type="datetime" />
+          <Property Name="status" Type="int" />
+          <Property Name="updateTimeW" Type="datetime" />
+          <Property Name="yujing_sendTime" Type="datetime" />
+          <Property Name="baojing_sendTime" Type="datetime" />
+          <Property Name="upType" Type="varchar" MaxLength="50" />
+          <Property Name="upTime" Type="datetime" />
+          <Property Name="MID" Type="int" />
+        </EntityType>
+        <EntityType Name="YJ_ProductXiaohao">
+          <Key>
+            <PropertyRef Name="proXHID" />
+          </Key>
+          <Property Name="proXHID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="proID" Type="int" />
+          <Property Name="plcListID" Type="int" />
+          <Property Name="xiaohao" Type="int" />
+          <Property Name="brand" Type="varchar" MaxLength="50" />
+          <Property Name="model" Type="varchar" MaxLength="50" />
+          <Property Name="createtTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="YJ_User">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userName" Type="varchar" MaxLength="50" />
+          <Property Name="mobile" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="tinyint" />
+          <Property Name="updateTime" Type="datetime" />
+          <Property Name="userType" Type="int" />
+        </EntityType>
+        <EntityContainer Name="easyYJModelStoreContainer">
+          <EntitySet Name="KB_cangKu" EntityType="Self.KB_cangKu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KB_cangKuIn" EntityType="Self.KB_cangKuIn" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KB_cangKuOut" EntityType="Self.KB_cangKuOut" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KB_cangKuSY" EntityType="Self.KB_cangKuSY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KB_DataSave" EntityType="Self.KB_DataSave" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KB_Model" EntityType="Self.KB_Model" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KB_moju" EntityType="Self.KB_moju" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KB_mojuModel" EntityType="Self.KB_mojuModel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KB_mojuWeibao" EntityType="Self.KB_mojuWeibao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KB_PLC_guding" EntityType="Self.KB_PLC_guding" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KB_ProductionPlan" EntityType="Self.KB_ProductionPlan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KB_Shift" EntityType="Self.KB_Shift" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YJ_LogALL" EntityType="Self.YJ_LogALL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YJ_Manage" EntityType="Self.YJ_Manage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YJ_ManageChuli" EntityType="Self.YJ_ManageChuli" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YJ_ManageSend" EntityType="Self.YJ_ManageSend" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YJ_ManageUser" EntityType="Self.YJ_ManageUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YJ_Menu" EntityType="Self.YJ_Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YJ_PLC" EntityType="Self.YJ_PLC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YJ_PLC_linkLog" EntityType="Self.YJ_PLC_linkLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YJ_PLC_list" EntityType="Self.YJ_PLC_list" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YJ_PLC_log" EntityType="Self.YJ_PLC_log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YJ_Product" EntityType="Self.YJ_Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YJ_ProductLog" EntityType="Self.YJ_ProductLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YJ_ProductXiaohao" EntityType="Self.YJ_ProductXiaohao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YJ_User" EntityType="Self.YJ_User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YJ_PLC_list_updateLog" EntityType="Self.YJ_PLC_list_updateLog" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [YJ_PLC_list_updateLog].[plcListID] AS [plcListID], 
+    [YJ_PLC_list_updateLog].[plcID] AS [plcID], 
+    [YJ_PLC_list_updateLog].[PLC_adress] AS [PLC_adress], 
+    [YJ_PLC_list_updateLog].[PLC_addressType] AS [PLC_addressType], 
+    [YJ_PLC_list_updateLog].[status] AS [status], 
+    [YJ_PLC_list_updateLog].[addressLenth] AS [addressLenth], 
+    [YJ_PLC_list_updateLog].[proID] AS [proID], 
+    [YJ_PLC_list_updateLog].[chufa] AS [chufa], 
+    [YJ_PLC_list_updateLog].[shuju_u] AS [shuju_u], 
+    [YJ_PLC_list_updateLog].[where_PLC_addressType] AS [where_PLC_addressType], 
+    [YJ_PLC_list_updateLog].[where_PLC_address] AS [where_PLC_address], 
+    [YJ_PLC_list_updateLog].[where_tiaojian] AS [where_tiaojian], 
+    [YJ_PLC_list_updateLog].[where_content] AS [where_content], 
+    [YJ_PLC_list_updateLog].[returnVal] AS [returnVal], 
+    [YJ_PLC_list_updateLog].[chuli] AS [chuli], 
+    [YJ_PLC_list_updateLog].[createTime] AS [createTime], 
+    [YJ_PLC_list_updateLog].[updateTime] AS [updateTime], 
+    [YJ_PLC_list_updateLog].[where_returnVal] AS [where_returnVal]
+    FROM [dbo].[YJ_PLC_list_updateLog] AS [YJ_PLC_list_updateLog]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="easyYJModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="easyYJEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="KB_cangKu" EntityType="easyYJModel.KB_cangKu" />
+          <EntitySet Name="KB_cangKuIn" EntityType="easyYJModel.KB_cangKuIn" />
+          <EntitySet Name="KB_cangKuOut" EntityType="easyYJModel.KB_cangKuOut" />
+          <EntitySet Name="KB_cangKuSY" EntityType="easyYJModel.KB_cangKuSY" />
+          <EntitySet Name="KB_DataSave" EntityType="easyYJModel.KB_DataSave" />
+          <EntitySet Name="KB_Model" EntityType="easyYJModel.KB_Model" />
+          <EntitySet Name="KB_moju" EntityType="easyYJModel.KB_moju" />
+          <EntitySet Name="KB_mojuModel" EntityType="easyYJModel.KB_mojuModel" />
+          <EntitySet Name="KB_mojuWeibao" EntityType="easyYJModel.KB_mojuWeibao" />
+          <EntitySet Name="KB_PLC_guding" EntityType="easyYJModel.KB_PLC_guding" />
+          <EntitySet Name="KB_ProductionPlan" EntityType="easyYJModel.KB_ProductionPlan" />
+          <EntitySet Name="KB_Shift" EntityType="easyYJModel.KB_Shift" />
+          <EntitySet Name="YJ_LogALL" EntityType="easyYJModel.YJ_LogALL" />
+          <EntitySet Name="YJ_Manage" EntityType="easyYJModel.YJ_Manage" />
+          <EntitySet Name="YJ_ManageChuli" EntityType="easyYJModel.YJ_ManageChuli" />
+          <EntitySet Name="YJ_ManageSend" EntityType="easyYJModel.YJ_ManageSend" />
+          <EntitySet Name="YJ_ManageUser" EntityType="easyYJModel.YJ_ManageUser" />
+          <EntitySet Name="YJ_Menu" EntityType="easyYJModel.YJ_Menu" />
+          <EntitySet Name="YJ_PLC" EntityType="easyYJModel.YJ_PLC" />
+          <EntitySet Name="YJ_PLC_linkLog" EntityType="easyYJModel.YJ_PLC_linkLog" />
+          <EntitySet Name="YJ_PLC_list" EntityType="easyYJModel.YJ_PLC_list" />
+          <EntitySet Name="YJ_PLC_log" EntityType="easyYJModel.YJ_PLC_log" />
+          <EntitySet Name="YJ_Product" EntityType="easyYJModel.YJ_Product" />
+          <EntitySet Name="YJ_ProductLog" EntityType="easyYJModel.YJ_ProductLog" />
+          <EntitySet Name="YJ_ProductXiaohao" EntityType="easyYJModel.YJ_ProductXiaohao" />
+          <EntitySet Name="YJ_User" EntityType="easyYJModel.YJ_User" />
+          <EntitySet Name="YJ_PLC_list_updateLog" EntityType="easyYJModel.YJ_PLC_list_updateLog" />
+        </EntityContainer>
+        <EntityType Name="KB_cangKu">
+          <Key>
+            <PropertyRef Name="ckID" />
+          </Key>
+          <Property Name="ckID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="productName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="bandName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="modelName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ckNub" Type="Int32" />
+          <Property Name="updateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="KB_cangKuIn">
+          <Key>
+            <PropertyRef Name="ckrID" />
+          </Key>
+          <Property Name="ckrID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="productName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="bandName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="modelName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="inNub" Type="Int32" />
+          <Property Name="ruTime" Type="DateTime" Precision="3" />
+          <Property Name="userID" Type="Int32" />
+          <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="KB_cangKuOut">
+          <Key>
+            <PropertyRef Name="ckcID" />
+          </Key>
+          <Property Name="ckcID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="productName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="bandName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="modelName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="outNub" Type="Int32" />
+          <Property Name="outTime" Type="DateTime" Precision="3" />
+          <Property Name="userID" Type="Int32" />
+          <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="syID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="KB_cangKuSY">
+          <Key>
+            <PropertyRef Name="syID" />
+          </Key>
+          <Property Name="syID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="menuID" Type="Int32" />
+          <Property Name="menuName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ckID" Type="Int32" />
+          <Property Name="brandName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="modelName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="number" Type="Int32" />
+        </EntityType>
+        <EntityType Name="KB_DataSave">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShiftName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModelID" Type="Int32" />
+          <Property Name="PlanNumber" Type="Int32" />
+          <Property Name="Single" Type="Int32" />
+          <Property Name="ChangeNumber" Type="Int32" />
+          <Property Name="ModelName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Target" Type="Int32" />
+          <Property Name="Differences" Type="Int32" />
+          <Property Name="Datetime" Type="DateTime" Precision="3" />
+          <Property Name="Actual" Type="Int32" />
+          <Property Name="completion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OEE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="KB_Model">
+          <Key>
+            <PropertyRef Name="modelID" />
+          </Key>
+          <Property Name="modelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="intervalTime" Type="Decimal" Precision="18" Scale="1" />
+          <Property Name="ChangeTime" Type="Decimal" Precision="18" Scale="1" />
+          <Property Name="ModelName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="plcListID" Type="Int32" />
+          <Property Name="updateTime" Type="DateTime" Precision="3" />
+          <Property Name="PLC_modelID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="KB_moju">
+          <Key>
+            <PropertyRef Name="mjID" />
+          </Key>
+          <Property Name="mjID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mojuName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mojuNub" Type="Int32" />
+          <Property Name="liftNub" Type="Int32" />
+          <Property Name="createTime" Type="DateTime" Precision="3" />
+          <Property Name="baoyangTime" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="updateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="KB_mojuModel">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mjID" Type="Int32" />
+          <Property Name="modelID" Type="Int32" />
+          <Property Name="modelName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="KB_mojuWeibao">
+          <Key>
+            <PropertyRef Name="byID" />
+          </Key>
+          <Property Name="byID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mjID" Type="Int32" />
+          <Property Name="mojuName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mojuNub" Type="Int32" />
+          <Property Name="liftNub" Type="Int32" />
+          <Property Name="createTime" Type="DateTime" Precision="3" />
+          <Property Name="boayangTime" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="userID" Type="Int32" />
+          <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="KB_PLC_guding">
+          <Key>
+            <PropertyRef Name="GID" />
+          </Key>
+          <Property Name="GID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="plcID" Type="Int32" />
+          <Property Name="sname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="plc_address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="updateTime" Type="DateTime" Precision="3" />
+          <Property Name="plc_addressType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="addressLenth" Type="Int32" />
+        </EntityType>
+        <EntityType Name="KB_ProductionPlan">
+          <Key>
+            <PropertyRef Name="planID" />
+          </Key>
+          <Property Name="planID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Shift" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModelID" Type="Int32" />
+          <Property Name="ModelName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Planproduction" Type="Int32" />
+          <Property Name="ActualProduction" Type="Int32" />
+          <Property Name="startTime" Type="DateTime" Precision="3" />
+          <Property Name="endTime" Type="DateTime" Precision="3" />
+          <Property Name="planTime" Type="DateTime" Precision="0" />
+          <Property Name="createTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="KB_Shift">
+          <Key>
+            <PropertyRef Name="shiftID" />
+          </Key>
+          <Property Name="shiftID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShiftName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="startTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="endTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="YJ_LogALL">
+          <Key>
+            <PropertyRef Name="logID" />
+          </Key>
+          <Property Name="logID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="logContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="createTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="YJ_Manage">
+          <Key>
+            <PropertyRef Name="MID" />
+          </Key>
+          <Property Name="MID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="proID" Type="Int32" />
+          <Property Name="manageType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sendStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="createTime" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="YJ_ManageChuli">
+          <Key>
+            <PropertyRef Name="CLID" />
+          </Key>
+          <Property Name="CLID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="proID" Type="Int32" />
+          <Property Name="lifeValue" Type="Int32" />
+          <Property Name="yujingValue" Type="Int32" />
+          <Property Name="unit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="typeCL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userID" Type="Int32" />
+          <Property Name="createTime" Type="DateTime" Precision="3" />
+          <Property Name="mark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="proLogID" Type="Int32" />
+          <Property Name="MID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="YJ_ManageSend">
+          <Key>
+            <PropertyRef Name="sendID" />
+          </Key>
+          <Property Name="sendID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userID" Type="Int32" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="createTime" Type="DateTime" Precision="3" />
+          <Property Name="MID" Type="Int32" />
+          <Property Name="sendTime" Type="DateTime" Precision="3" />
+          <Property Name="sendContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="sendStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="YJ_ManageUser">
+          <Key>
+            <PropertyRef Name="tongzhiID" />
+          </Key>
+          <Property Name="tongzhiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="proID" Type="Int32" />
+          <Property Name="userID" Type="Int32" />
+          <Property Name="status" Type="Byte" />
+        </EntityType>
+        <EntityType Name="YJ_Menu">
+          <Key>
+            <PropertyRef Name="menuID" />
+          </Key>
+          <Property Name="menuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="menuName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="parentID" Type="Int32" />
+          <Property Name="status" Type="Byte" />
+          <Property Name="updateTime" Type="DateTime" Precision="3" />
+          <Property Name="menuType" Type="Int32" />
+        </EntityType>
+        <EntityType Name="YJ_PLC">
+          <Key>
+            <PropertyRef Name="plcID" />
+          </Key>
+          <Property Name="plcID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PLC_brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PLC_ip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PLC_port" Type="Int32" />
+          <Property Name="PLC_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="createTime" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="className" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PLC_model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="updateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="YJ_PLC_linkLog">
+          <Key>
+            <PropertyRef Name="plcLogID" />
+          </Key>
+          <Property Name="plcLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="plcID" Type="Int32" />
+          <Property Name="linkStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="createTime" Type="DateTime" Precision="3" />
+          <Property Name="ipAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="YJ_PLC_list">
+          <Key>
+            <PropertyRef Name="plcListID" />
+          </Key>
+          <Property Name="plcListID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="plcID" Type="Int32" />
+          <Property Name="PLC_adress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PLC_addressType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="addressLenth" Type="Int32" />
+          <Property Name="proID" Type="Int32" />
+          <Property Name="chufa" Type="Int32" />
+          <Property Name="shuju_u" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="where_PLC_addressType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="where_PLC_address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="where_tiaojian" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="where_content" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="returnVal" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="chuli" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="chuliType" Type="Int32" />
+          <Property Name="createTime" Type="DateTime" Precision="3" />
+          <Property Name="updateTime" Type="DateTime" Precision="3" />
+          <Property Name="where_returnVal" Type="Int32" />
+          <Property Name="Type_y" Type="Int32" />
+          <Property Name="modelID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="YJ_PLC_log">
+          <Key>
+            <PropertyRef Name="logID" />
+          </Key>
+          <Property Name="logID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="proID" Type="Int32" />
+          <Property Name="plcID" Type="Int32" />
+          <Property Name="plcListID" Type="Int32" />
+          <Property Name="plcVal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="createtTime" Type="DateTime" Precision="3" />
+          <Property Name="record" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="YJ_Product">
+          <Key>
+            <PropertyRef Name="proID" />
+          </Key>
+          <Property Name="proID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="proName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lifeValue" Type="Int32" />
+          <Property Name="unit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="yujingValue" Type="Int32" />
+          <Property Name="DValue" Type="Int32" />
+          <Property Name="shopTime" Type="Int32" />
+          <Property Name="menuID" Type="Int32" />
+          <Property Name="imgPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="shopTimeType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="createTime" Type="DateTime" Precision="3" />
+          <Property Name="updateTime" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="yujing_sendTime" Type="DateTime" Precision="3" />
+          <Property Name="baojing_sendTime" Type="DateTime" Precision="3" />
+          <Property Name="updateTimeW" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="YJ_ProductLog">
+          <Key>
+            <PropertyRef Name="proLogID" />
+          </Key>
+          <Property Name="proLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="proID" Type="Int32" />
+          <Property Name="proName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lifeValue" Type="Int32" />
+          <Property Name="unit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="yujingValue" Type="Int32" />
+          <Property Name="DValue" Type="Int32" />
+          <Property Name="shopTime" Type="Int32" />
+          <Property Name="menuID" Type="Int32" />
+          <Property Name="imgPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="shopTimeType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="createTime" Type="DateTime" Precision="3" />
+          <Property Name="updateTime" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="updateTimeW" Type="DateTime" Precision="3" />
+          <Property Name="yujing_sendTime" Type="DateTime" Precision="3" />
+          <Property Name="baojing_sendTime" Type="DateTime" Precision="3" />
+          <Property Name="upType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="upTime" Type="DateTime" Precision="3" />
+          <Property Name="MID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="YJ_ProductXiaohao">
+          <Key>
+            <PropertyRef Name="proXHID" />
+          </Key>
+          <Property Name="proXHID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="proID" Type="Int32" />
+          <Property Name="plcListID" Type="Int32" />
+          <Property Name="xiaohao" Type="Int32" />
+          <Property Name="brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="createtTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="YJ_User">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Byte" />
+          <Property Name="updateTime" Type="DateTime" Precision="3" />
+          <Property Name="userType" Type="Int32" />
+        </EntityType>
+        <EntityType Name="YJ_PLC_list_updateLog">
+          <Key>
+            <PropertyRef Name="plcListID" />
+          </Key>
+          <Property Name="plcListID" Type="Int32" Nullable="false" />
+          <Property Name="plcID" Type="Int32" />
+          <Property Name="PLC_adress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PLC_addressType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="addressLenth" Type="Int32" />
+          <Property Name="proID" Type="Int32" />
+          <Property Name="chufa" Type="Int32" />
+          <Property Name="shuju_u" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="where_PLC_addressType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="where_PLC_address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="where_tiaojian" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="where_content" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="returnVal" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="chuli" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="createTime" Type="DateTime" Precision="3" />
+          <Property Name="updateTime" Type="DateTime" Precision="3" />
+          <Property Name="where_returnVal" Type="Int32" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="easyYJModelStoreContainer" CdmEntityContainer="easyYJEntities">
+          <EntitySetMapping Name="KB_cangKu">
+            <EntityTypeMapping TypeName="easyYJModel.KB_cangKu">
+              <MappingFragment StoreEntitySet="KB_cangKu">
+                <ScalarProperty Name="updateTime" ColumnName="updateTime" />
+                <ScalarProperty Name="ckNub" ColumnName="ckNub" />
+                <ScalarProperty Name="modelName" ColumnName="modelName" />
+                <ScalarProperty Name="bandName" ColumnName="bandName" />
+                <ScalarProperty Name="productName" ColumnName="productName" />
+                <ScalarProperty Name="ckID" ColumnName="ckID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KB_cangKuIn">
+            <EntityTypeMapping TypeName="easyYJModel.KB_cangKuIn">
+              <MappingFragment StoreEntitySet="KB_cangKuIn">
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="ruTime" ColumnName="ruTime" />
+                <ScalarProperty Name="inNub" ColumnName="inNub" />
+                <ScalarProperty Name="modelName" ColumnName="modelName" />
+                <ScalarProperty Name="bandName" ColumnName="bandName" />
+                <ScalarProperty Name="productName" ColumnName="productName" />
+                <ScalarProperty Name="ckrID" ColumnName="ckrID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KB_cangKuOut">
+            <EntityTypeMapping TypeName="easyYJModel.KB_cangKuOut">
+              <MappingFragment StoreEntitySet="KB_cangKuOut">
+                <ScalarProperty Name="syID" ColumnName="syID" />
+                <ScalarProperty Name="mark" ColumnName="mark" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="outTime" ColumnName="outTime" />
+                <ScalarProperty Name="outNub" ColumnName="outNub" />
+                <ScalarProperty Name="modelName" ColumnName="modelName" />
+                <ScalarProperty Name="bandName" ColumnName="bandName" />
+                <ScalarProperty Name="productName" ColumnName="productName" />
+                <ScalarProperty Name="ckcID" ColumnName="ckcID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KB_cangKuSY">
+            <EntityTypeMapping TypeName="easyYJModel.KB_cangKuSY">
+              <MappingFragment StoreEntitySet="KB_cangKuSY">
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="modelName" ColumnName="modelName" />
+                <ScalarProperty Name="brandName" ColumnName="brandName" />
+                <ScalarProperty Name="ckID" ColumnName="ckID" />
+                <ScalarProperty Name="menuName" ColumnName="menuName" />
+                <ScalarProperty Name="menuID" ColumnName="menuID" />
+                <ScalarProperty Name="syID" ColumnName="syID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KB_DataSave">
+            <EntityTypeMapping TypeName="easyYJModel.KB_DataSave">
+              <MappingFragment StoreEntitySet="KB_DataSave">
+                <ScalarProperty Name="OEE" ColumnName="OEE" />
+                <ScalarProperty Name="completion" ColumnName="completion" />
+                <ScalarProperty Name="Actual" ColumnName="Actual" />
+                <ScalarProperty Name="Datetime" ColumnName="Datetime" />
+                <ScalarProperty Name="Differences" ColumnName="Differences" />
+                <ScalarProperty Name="Target" ColumnName="Target" />
+                <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+                <ScalarProperty Name="ChangeNumber" ColumnName="ChangeNumber" />
+                <ScalarProperty Name="Single" ColumnName="Single" />
+                <ScalarProperty Name="PlanNumber" ColumnName="PlanNumber" />
+                <ScalarProperty Name="ModelID" ColumnName="ModelID" />
+                <ScalarProperty Name="ShiftName" ColumnName="ShiftName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KB_Model">
+            <EntityTypeMapping TypeName="easyYJModel.KB_Model">
+              <MappingFragment StoreEntitySet="KB_Model">
+                <ScalarProperty Name="PLC_modelID" ColumnName="PLC_modelID" />
+                <ScalarProperty Name="updateTime" ColumnName="updateTime" />
+                <ScalarProperty Name="plcListID" ColumnName="plcListID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+                <ScalarProperty Name="ChangeTime" ColumnName="ChangeTime" />
+                <ScalarProperty Name="intervalTime" ColumnName="intervalTime" />
+                <ScalarProperty Name="modelID" ColumnName="modelID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KB_moju">
+            <EntityTypeMapping TypeName="easyYJModel.KB_moju">
+              <MappingFragment StoreEntitySet="KB_moju">
+                <ScalarProperty Name="updateTime" ColumnName="updateTime" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="baoyangTime" ColumnName="baoyangTime" />
+                <ScalarProperty Name="createTime" ColumnName="createTime" />
+                <ScalarProperty Name="liftNub" ColumnName="liftNub" />
+                <ScalarProperty Name="mojuNub" ColumnName="mojuNub" />
+                <ScalarProperty Name="mojuName" ColumnName="mojuName" />
+                <ScalarProperty Name="mjID" ColumnName="mjID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KB_mojuModel">
+            <EntityTypeMapping TypeName="easyYJModel.KB_mojuModel">
+              <MappingFragment StoreEntitySet="KB_mojuModel">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="modelName" ColumnName="modelName" />
+                <ScalarProperty Name="modelID" ColumnName="modelID" />
+                <ScalarProperty Name="mjID" ColumnName="mjID" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KB_mojuWeibao">
+            <EntityTypeMapping TypeName="easyYJModel.KB_mojuWeibao">
+              <MappingFragment StoreEntitySet="KB_mojuWeibao">
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="boayangTime" ColumnName="boayangTime" />
+                <ScalarProperty Name="createTime" ColumnName="createTime" />
+                <ScalarProperty Name="liftNub" ColumnName="liftNub" />
+                <ScalarProperty Name="mojuNub" ColumnName="mojuNub" />
+                <ScalarProperty Name="mojuName" ColumnName="mojuName" />
+                <ScalarProperty Name="mjID" ColumnName="mjID" />
+                <ScalarProperty Name="byID" ColumnName="byID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KB_PLC_guding">
+            <EntityTypeMapping TypeName="easyYJModel.KB_PLC_guding">
+              <MappingFragment StoreEntitySet="KB_PLC_guding">
+                <ScalarProperty Name="addressLenth" ColumnName="addressLenth" />
+                <ScalarProperty Name="plc_addressType" ColumnName="plc_addressType" />
+                <ScalarProperty Name="updateTime" ColumnName="updateTime" />
+                <ScalarProperty Name="plc_address" ColumnName="plc_address" />
+                <ScalarProperty Name="sname" ColumnName="sname" />
+                <ScalarProperty Name="plcID" ColumnName="plcID" />
+                <ScalarProperty Name="GID" ColumnName="GID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KB_ProductionPlan">
+            <EntityTypeMapping TypeName="easyYJModel.KB_ProductionPlan">
+              <MappingFragment StoreEntitySet="KB_ProductionPlan">
+                <ScalarProperty Name="createTime" ColumnName="createTime" />
+                <ScalarProperty Name="planTime" ColumnName="planTime" />
+                <ScalarProperty Name="endTime" ColumnName="endTime" />
+                <ScalarProperty Name="startTime" ColumnName="startTime" />
+                <ScalarProperty Name="ActualProduction" ColumnName="ActualProduction" />
+                <ScalarProperty Name="Planproduction" ColumnName="Planproduction" />
+                <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+                <ScalarProperty Name="ModelID" ColumnName="ModelID" />
+                <ScalarProperty Name="Shift" ColumnName="Shift" />
+                <ScalarProperty Name="planID" ColumnName="planID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KB_Shift">
+            <EntityTypeMapping TypeName="easyYJModel.KB_Shift">
+              <MappingFragment StoreEntitySet="KB_Shift">
+                <ScalarProperty Name="endTime" ColumnName="endTime" />
+                <ScalarProperty Name="startTime" ColumnName="startTime" />
+                <ScalarProperty Name="ShiftName" ColumnName="ShiftName" />
+                <ScalarProperty Name="shiftID" ColumnName="shiftID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YJ_LogALL">
+            <EntityTypeMapping TypeName="easyYJModel.YJ_LogALL">
+              <MappingFragment StoreEntitySet="YJ_LogALL">
+                <ScalarProperty Name="createTime" ColumnName="createTime" />
+                <ScalarProperty Name="logContent" ColumnName="logContent" />
+                <ScalarProperty Name="logID" ColumnName="logID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YJ_Manage">
+            <EntityTypeMapping TypeName="easyYJModel.YJ_Manage">
+              <MappingFragment StoreEntitySet="YJ_Manage">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="createTime" ColumnName="createTime" />
+                <ScalarProperty Name="sendStatus" ColumnName="sendStatus" />
+                <ScalarProperty Name="manageType" ColumnName="manageType" />
+                <ScalarProperty Name="proID" ColumnName="proID" />
+                <ScalarProperty Name="MID" ColumnName="MID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YJ_ManageChuli">
+            <EntityTypeMapping TypeName="easyYJModel.YJ_ManageChuli">
+              <MappingFragment StoreEntitySet="YJ_ManageChuli">
+                <ScalarProperty Name="MID" ColumnName="MID" />
+                <ScalarProperty Name="proLogID" ColumnName="proLogID" />
+                <ScalarProperty Name="mark" ColumnName="mark" />
+                <ScalarProperty Name="createTime" ColumnName="createTime" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="typeCL" ColumnName="typeCL" />
+                <ScalarProperty Name="unit" ColumnName="unit" />
+                <ScalarProperty Name="yujingValue" ColumnName="yujingValue" />
+                <ScalarProperty Name="lifeValue" ColumnName="lifeValue" />
+                <ScalarProperty Name="proID" ColumnName="proID" />
+                <ScalarProperty Name="CLID" ColumnName="CLID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YJ_ManageSend">
+            <EntityTypeMapping TypeName="easyYJModel.YJ_ManageSend">
+              <MappingFragment StoreEntitySet="YJ_ManageSend">
+                <ScalarProperty Name="sendStatus" ColumnName="sendStatus" />
+                <ScalarProperty Name="sendContent" ColumnName="sendContent" />
+                <ScalarProperty Name="sendTime" ColumnName="sendTime" />
+                <ScalarProperty Name="MID" ColumnName="MID" />
+                <ScalarProperty Name="createTime" ColumnName="createTime" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="sendID" ColumnName="sendID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YJ_ManageUser">
+            <EntityTypeMapping TypeName="easyYJModel.YJ_ManageUser">
+              <MappingFragment StoreEntitySet="YJ_ManageUser">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="proID" ColumnName="proID" />
+                <ScalarProperty Name="tongzhiID" ColumnName="tongzhiID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YJ_Menu">
+            <EntityTypeMapping TypeName="easyYJModel.YJ_Menu">
+              <MappingFragment StoreEntitySet="YJ_Menu">
+                <ScalarProperty Name="menuType" ColumnName="menuType" />
+                <ScalarProperty Name="updateTime" ColumnName="updateTime" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="parentID" ColumnName="parentID" />
+                <ScalarProperty Name="menuName" ColumnName="menuName" />
+                <ScalarProperty Name="menuID" ColumnName="menuID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YJ_PLC">
+            <EntityTypeMapping TypeName="easyYJModel.YJ_PLC">
+              <MappingFragment StoreEntitySet="YJ_PLC">
+                <ScalarProperty Name="updateTime" ColumnName="updateTime" />
+                <ScalarProperty Name="PLC_model" ColumnName="PLC_model" />
+                <ScalarProperty Name="className" ColumnName="className" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="createTime" ColumnName="createTime" />
+                <ScalarProperty Name="PLC_name" ColumnName="PLC_name" />
+                <ScalarProperty Name="PLC_port" ColumnName="PLC_port" />
+                <ScalarProperty Name="PLC_ip" ColumnName="PLC_ip" />
+                <ScalarProperty Name="PLC_brand" ColumnName="PLC_brand" />
+                <ScalarProperty Name="plcID" ColumnName="plcID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YJ_PLC_linkLog">
+            <EntityTypeMapping TypeName="easyYJModel.YJ_PLC_linkLog">
+              <MappingFragment StoreEntitySet="YJ_PLC_linkLog">
+                <ScalarProperty Name="ipAddress" ColumnName="ipAddress" />
+                <ScalarProperty Name="createTime" ColumnName="createTime" />
+                <ScalarProperty Name="linkStatus" ColumnName="linkStatus" />
+                <ScalarProperty Name="plcID" ColumnName="plcID" />
+                <ScalarProperty Name="plcLogID" ColumnName="plcLogID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YJ_PLC_list">
+            <EntityTypeMapping TypeName="easyYJModel.YJ_PLC_list">
+              <MappingFragment StoreEntitySet="YJ_PLC_list">
+                <ScalarProperty Name="modelID" ColumnName="modelID" />
+                <ScalarProperty Name="Type_y" ColumnName="Type_y" />
+                <ScalarProperty Name="where_returnVal" ColumnName="where_returnVal" />
+                <ScalarProperty Name="updateTime" ColumnName="updateTime" />
+                <ScalarProperty Name="createTime" ColumnName="createTime" />
+                <ScalarProperty Name="chuliType" ColumnName="chuliType" />
+                <ScalarProperty Name="chuli" ColumnName="chuli" />
+                <ScalarProperty Name="returnVal" ColumnName="returnVal" />
+                <ScalarProperty Name="where_content" ColumnName="where_content" />
+                <ScalarProperty Name="where_tiaojian" ColumnName="where_tiaojian" />
+                <ScalarProperty Name="where_PLC_address" ColumnName="where_PLC_address" />
+                <ScalarProperty Name="where_PLC_addressType" ColumnName="where_PLC_addressType" />
+                <ScalarProperty Name="shuju_u" ColumnName="shuju_u" />
+                <ScalarProperty Name="chufa" ColumnName="chufa" />
+                <ScalarProperty Name="proID" ColumnName="proID" />
+                <ScalarProperty Name="addressLenth" ColumnName="addressLenth" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="PLC_addressType" ColumnName="PLC_addressType" />
+                <ScalarProperty Name="PLC_adress" ColumnName="PLC_adress" />
+                <ScalarProperty Name="plcID" ColumnName="plcID" />
+                <ScalarProperty Name="plcListID" ColumnName="plcListID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YJ_PLC_log">
+            <EntityTypeMapping TypeName="easyYJModel.YJ_PLC_log">
+              <MappingFragment StoreEntitySet="YJ_PLC_log">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="record" ColumnName="record" />
+                <ScalarProperty Name="createtTime" ColumnName="createtTime" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="plcVal" ColumnName="plcVal" />
+                <ScalarProperty Name="plcListID" ColumnName="plcListID" />
+                <ScalarProperty Name="plcID" ColumnName="plcID" />
+                <ScalarProperty Name="proID" ColumnName="proID" />
+                <ScalarProperty Name="logID" ColumnName="logID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YJ_Product">
+            <EntityTypeMapping TypeName="easyYJModel.YJ_Product">
+              <MappingFragment StoreEntitySet="YJ_Product">
+                <ScalarProperty Name="updateTimeW" ColumnName="updateTimeW" />
+                <ScalarProperty Name="baojing_sendTime" ColumnName="baojing_sendTime" />
+                <ScalarProperty Name="yujing_sendTime" ColumnName="yujing_sendTime" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="updateTime" ColumnName="updateTime" />
+                <ScalarProperty Name="createTime" ColumnName="createTime" />
+                <ScalarProperty Name="shopTimeType" ColumnName="shopTimeType" />
+                <ScalarProperty Name="imgPath" ColumnName="imgPath" />
+                <ScalarProperty Name="menuID" ColumnName="menuID" />
+                <ScalarProperty Name="shopTime" ColumnName="shopTime" />
+                <ScalarProperty Name="DValue" ColumnName="DValue" />
+                <ScalarProperty Name="yujingValue" ColumnName="yujingValue" />
+                <ScalarProperty Name="unit" ColumnName="unit" />
+                <ScalarProperty Name="lifeValue" ColumnName="lifeValue" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="brand" ColumnName="brand" />
+                <ScalarProperty Name="proName" ColumnName="proName" />
+                <ScalarProperty Name="proID" ColumnName="proID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YJ_ProductLog">
+            <EntityTypeMapping TypeName="easyYJModel.YJ_ProductLog">
+              <MappingFragment StoreEntitySet="YJ_ProductLog">
+                <ScalarProperty Name="MID" ColumnName="MID" />
+                <ScalarProperty Name="upTime" ColumnName="upTime" />
+                <ScalarProperty Name="upType" ColumnName="upType" />
+                <ScalarProperty Name="baojing_sendTime" ColumnName="baojing_sendTime" />
+                <ScalarProperty Name="yujing_sendTime" ColumnName="yujing_sendTime" />
+                <ScalarProperty Name="updateTimeW" ColumnName="updateTimeW" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="updateTime" ColumnName="updateTime" />
+                <ScalarProperty Name="createTime" ColumnName="createTime" />
+                <ScalarProperty Name="shopTimeType" ColumnName="shopTimeType" />
+                <ScalarProperty Name="imgPath" ColumnName="imgPath" />
+                <ScalarProperty Name="menuID" ColumnName="menuID" />
+                <ScalarProperty Name="shopTime" ColumnName="shopTime" />
+                <ScalarProperty Name="DValue" ColumnName="DValue" />
+                <ScalarProperty Name="yujingValue" ColumnName="yujingValue" />
+                <ScalarProperty Name="unit" ColumnName="unit" />
+                <ScalarProperty Name="lifeValue" ColumnName="lifeValue" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="brand" ColumnName="brand" />
+                <ScalarProperty Name="proName" ColumnName="proName" />
+                <ScalarProperty Name="proID" ColumnName="proID" />
+                <ScalarProperty Name="proLogID" ColumnName="proLogID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YJ_ProductXiaohao">
+            <EntityTypeMapping TypeName="easyYJModel.YJ_ProductXiaohao">
+              <MappingFragment StoreEntitySet="YJ_ProductXiaohao">
+                <ScalarProperty Name="createtTime" ColumnName="createtTime" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="brand" ColumnName="brand" />
+                <ScalarProperty Name="xiaohao" ColumnName="xiaohao" />
+                <ScalarProperty Name="plcListID" ColumnName="plcListID" />
+                <ScalarProperty Name="proID" ColumnName="proID" />
+                <ScalarProperty Name="proXHID" ColumnName="proXHID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YJ_User">
+            <EntityTypeMapping TypeName="easyYJModel.YJ_User">
+              <MappingFragment StoreEntitySet="YJ_User">
+                <ScalarProperty Name="userType" ColumnName="userType" />
+                <ScalarProperty Name="updateTime" ColumnName="updateTime" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YJ_PLC_list_updateLog">
+            <EntityTypeMapping TypeName="easyYJModel.YJ_PLC_list_updateLog">
+              <MappingFragment StoreEntitySet="YJ_PLC_list_updateLog">
+                <ScalarProperty Name="where_returnVal" ColumnName="where_returnVal" />
+                <ScalarProperty Name="updateTime" ColumnName="updateTime" />
+                <ScalarProperty Name="createTime" ColumnName="createTime" />
+                <ScalarProperty Name="chuli" ColumnName="chuli" />
+                <ScalarProperty Name="returnVal" ColumnName="returnVal" />
+                <ScalarProperty Name="where_content" ColumnName="where_content" />
+                <ScalarProperty Name="where_tiaojian" ColumnName="where_tiaojian" />
+                <ScalarProperty Name="where_PLC_address" ColumnName="where_PLC_address" />
+                <ScalarProperty Name="where_PLC_addressType" ColumnName="where_PLC_addressType" />
+                <ScalarProperty Name="shuju_u" ColumnName="shuju_u" />
+                <ScalarProperty Name="chufa" ColumnName="chufa" />
+                <ScalarProperty Name="proID" ColumnName="proID" />
+                <ScalarProperty Name="addressLenth" ColumnName="addressLenth" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="PLC_addressType" ColumnName="PLC_addressType" />
+                <ScalarProperty Name="PLC_adress" ColumnName="PLC_adress" />
+                <ScalarProperty Name="plcID" ColumnName="plcID" />
+                <ScalarProperty Name="plcListID" ColumnName="plcListID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

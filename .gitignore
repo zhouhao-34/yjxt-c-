@@ -1,0 +1,10 @@
+BLL/bin/Debug/
+BLL/obj/Debug/
+DAL/bin/Debug/
+DAL/obj/Debug/
+Entity/bin/Debug/
+Entity/obj/Debug/
+warning/warning/bin/Debug/
+warning/warning/obj/Debug/
+warning/.vs/
+warning/packages/
